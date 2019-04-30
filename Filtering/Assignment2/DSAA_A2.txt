@@ -1,0 +1,290 @@
+﻿DSAA ASSIGNMENT2 - REPORT
+                                      PARYUL JAIN
+                                        20171083
+                                            IIIT-H
+
+
+----------------------------------------------------------------------------------------------------
+t = timer('TimerFcn', 'stat=false; disp(''Timer!'')',...
+                     'StartDelay',10);
+start(t)
+
+
+stat=true;
+while(stat==true)
+%   disp('.')
+  pause(1)
+end
+clear all; close all; clc
+----------------------------------------------------------------------------------------------------
+The FFT function will return a complex double array. If you read in a .JPG or a .TIF file, you will notice that they are UINT8 arrays. So, you will have to take the real part of the IFFT and then convert it back into UINT8.
+----------------------------------------------------------------------------------------------------
+new_image = flipdim(original_image,1) // vertical flip
+new_image = flipdim(original_image,2) // horizontal flip
+----------------------------------------------------------------------------------------------------
+dftmtx(N) -> gives the W matrix 
+----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                                        QUESTION-1
+PART 1,3
+  
+
+              cameraman.tif  -> ORIGINAL IMAGE
+
+
+  
+
+                USING IMPLEMENTED GAUSSIAN FILTER with N=100, SIGMA=5
+
+
+
+
+
+
+  
+USING FSPECIAL(creates predefined 2d filter). GAUSSIAN FILTER with N=100, SIGMA=5
+
+
+
+
+
+
+
+
+  
+
+             USING IMPLEMENTED GAUSSIAN FILTER with N=100, SIGMA=2
+
+
+  
+
+USING FSPECIAL(creates predefined 2d filter). GAUSSIAN FILTER with N=100, SIGMA=2
+
+
+
+
+  
+
+             USING IMPLEMENTED GAUSSIAN FILTER with N=1000, SIGMA=5
+
+
+
+
+
+
+
+
+  
+
+USING FSPECIAL(creates predefined 2d filter). GAUSSIAN FILTER with N=1000, SIGMA=5
+
+
+
+
+As we see that when we  increase sigma , the distortion increases in both the implemented as well as the fspecial generated filter.
+Also when we increase N , the value at any point is generated using values from very large areas, so we can see that distortion comes into play.
+
+
+The only difference i could infer was that the values by the implemented gaussian filter tend to be lesser than the values obtained after passing thru the fspecial filter.
+
+
+PART 2,3
+
+
+  Designed median filter with N=10 (WINDOW SIZE);
+  
+
+ Designed median filter with N=5 (WINDOW SIZE);
+                          
+
+
+                        
+                        Designed median filter with N=2 (WINDOW SIZE);
+                          
+
+
+Median filter helps remove outliers. Since the median of a window is unaffected by an outlier , it helps remove ‘salt and pepper’ noise.
+
+
+PART 4
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+Median filter is the best as it removes salt and pepper noise from inp1.png
+
+
+PART 5
+
+
+  
+
+
+
+  
+
+  
+
+
+
+          
+
+
+Notch filter will be best suitable .Since we can see the noise in figure 2, we need to remove the specific noise .  So we filter out specific frequencies.
+
+
+-------------------------------------------------xxxxxxxxxxxxxx---------------------------------------------------
+
+
+                                    QUESTION 2
+
+
+A.
+
+
+After convolution the height ,width and channels of the output are as follows.
+
+
+H  = Height of the original image
+W = Width of the original image
+F = Filter Height and Width
+Z = Zero Padding.
+N = Number of filters.
+
+
+New_height = floor((H+ 2*Z -F)/S)+1;
+
+
+New_width = floor((W+ 2*Z -F)/S)+1;
+
+
+New_channels  = N * Channels; //(No change.)
+
+
+B.
+
+
+So for each element there will be F*F multiplications and F*F-1 additions. 
+
+
+And now since the total number of elements in the resultant matrix are 
+
+T = New_height * New_width * New_Channels;
+
+
+So total number of Operations of multiplications will be = T * F *  F; and
+
+
+The total number of Operations of additions will be = T * ((F *  F) - 1);
+
+
+-------------------------------------------------xxxxxxxxxxxxxx---------------------------------------------------
+                                         QUESTION 3
+-----------------------------------------------------xxxxxxxxxxxxxx-----------------------------------------------
+                                         QUESTION 4
+-----------------------------------------------------xxxxxxxxxxxxxx-----------------------------------------------
+                                         QUESTION 5
+-------------------------------------------------xxxxxxxxxxxxxx---------------------------------------------------
+                                         QUESTION 6
+                        
+          
+                                        Original Image
+
+
+        
+          
+                            Fft Of the Original Image
+
+
+  
+
+                                        Fft of fft of image
+        
+The most common observation is that the fft of fft is double flipped .
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+In the frequency domain (i.e after taking the first fft, we manually flip the image wrt to both x and y direction since we know (by observation))  that the final image is flipped in both x and y.
+
+
+                          
+
+
+This effectively makes the image of the same orientation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+                
+        Q.What does fft of an image denote ?
+A.It denotes the amplitudes and frequencies of the sines/cosines that, when added up, will give you the original image.
+
+
+-----------------------------------------------------xxxxxxxxxxxxxx-----------------------------------------------
+
+
+                                         QUESTION 7
+
+
+-----------------------------------------------------xxxxxxxxxxxxxx-----------------------------------------------

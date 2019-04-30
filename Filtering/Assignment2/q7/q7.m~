@@ -1,0 +1,17 @@
+%%%%%%%%%%%%%% PART 1- MY SPECTOGRAM %%%%%%%%%%%%%%%%%%%%
+
+fig_count = 1;
+
+% [y,Fs] = audioread('chirp.wav');
+% 
+% sound(y,Fs);
+% 
+% s = spectrogram(y,2);
+% 
+% spectrogram(y,'xaxis');
+
+
+%%%%%%%%%% PART 2 - DARTH VEDAR %%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%% PART 3 - A
